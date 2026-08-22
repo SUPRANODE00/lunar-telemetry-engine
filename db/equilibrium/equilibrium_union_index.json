@@ -1,0 +1,49 @@
+[
+{
+  "identifier": "MSDIN-4096667081",
+  "web_url": "https://MSDIN-4096667081.supranode00.local/tier/upward",
+  "tel_url": "tel:+14096667081;ext=tier",
+  "electronegative_encoding": "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x4d\x53\x44\x49\x4e\x2d\x34\x30\x39\x36\x36\x36\x37\x30\x38\x31\x2e\x73\x75\x70\x72\x61
+\x6e\x6f\x64\x65\x30\x30\x2e\x6c\x6f\x63\x61\x6c\x2f\x74\x69\x65\x72\x2f\x75\x70\x77\x61\x72\x64",
+  "tier": "upward_stacked_side_attached",
+  "status": "active"
+}
+,
+{
+  "node_type": "stacked_tier_endpoint",
+  "identifier": "MSDIN-4096667081",
+  "attachment_mode": "side_attached",
+  "tier_level": "upward_stacked",
+  "uri": "capsule://msdin-tier.supranode00.local/endpoint",
+  "spatial_lock": "X/Y/Z-offset",
+  "status": "synchronized"
+}
+,
+{
+  "node_type": "uri_endpoint",
+  "identifier": "root_b_generative_origin",
+  "uri": "capsule://root-b.supranode00.local/origin",
+  "spatial_lock": "X/Y/Z",
+  "charge_state": "active_carrier_modulated",
+  "encoding": "utf-8",
+  "status": "synchronized"
+}
+,
+{
+  "record_type": "trademark_registration",
+  "identifier": "7,890,123",
+  "mark_text": "SLITH3R0INBOW",
+  "classes": ["009", "042"],
+  "registrant": "VIRTUAL REALITIES, INC. (a Delaware Corporation)",
+  "status": "Registered",
+  "verification_source": "USPTO TSDR Pipeline"
+}
+,
+{
+  "node_type": "uri_endpoint",
+  "identifier": "tsdr_portal",
+  "url": "https://tsdr.uspto.gov",
+  "encoding": "utf-8",
+  "status": "active"
+}
+]

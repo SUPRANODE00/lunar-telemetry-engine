@@ -1,0 +1,7 @@
+{
+  "node_type": "uri_endpoint",
+  "identifier": "tsdr_portal",
+  "url": "https://tsdr.uspto.gov",
+  "encoding": "utf-8",
+  "status": "active"
+}

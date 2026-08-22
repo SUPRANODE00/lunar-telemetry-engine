@@ -1,0 +1,80 @@
+# Created by Octave 9.4.0, Sat Aug 22 05:20:38 2026 CDT <d3m13n@penguin>
+# name: capsule
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 6
+# name: GNSS_ENU_origin
+# type: matrix
+# rows: 3
+# columns: 1
+ 0
+ 0
+ 0
+
+
+# name: camera_pupil
+# type: matrix
+# rows: 3
+# columns: 1
+ 0
+ 0
+ 0
+
+
+# name: dipole
+# type: matrix
+# rows: 3
+# columns: 1
+ 0.35355339059327379
+ 0.61237243569579447
+ 0.70710678118654757
+
+
+# name: antipode
+# type: matrix
+# rows: 3
+# columns: 1
+ -0.35355339059327379
+ -0.61237243569579447
+ -0.70710678118654757
+
+
+# name: radius_shell
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 2
+# name: inner
+# type: scalar
+1
+
+
+# name: outer
+# type: scalar
+5
+
+
+
+
+# name: database
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 2
+# name: server
+# type: sq_string
+# elements: 1
+# length: 12
+192.168.1.15
+
+
+# name: port
+# type: scalar
+5432
+
+
+
+
+
+

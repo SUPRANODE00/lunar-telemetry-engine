@@ -1,0 +1,9 @@
+[ERROR] File missing in staging: /home/d3m13n/staging/equilibrium/trademark_certificate.jpeg
+[ERROR] File missing in staging: /home/d3m13n/staging/equilibrium/trademark_certificate.jpeg
+[ERROR] File missing in staging: /home/d3m13n/staging/equilibrium/trademark_certificate.jpeg
+[OK] Binary routed to /home/d3m13n/db/equilibrium/root_folder/trademark_certificate.jpeg
+[INDEX] Field: identifier => Value: 7,890,123
+[INDEX] Field: status => Value: Registered
+[INDEX] Field: identifier => Value: 7,890,123
+[INDEX] Field: status => Value: Registered
+[SYNC] Equilibrium union index updated successfully via stream pipeline.

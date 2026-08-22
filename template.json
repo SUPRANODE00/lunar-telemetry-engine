@@ -1,0 +1,19 @@
+{
+  "protocol_directive": "WINDOW_CONTEXT_CALIBRATION",
+  "identity_vector": {
+    "assigned_identifier": "SESSION_ID_PLACEHOLDER",
+    "mesh_status": "ISOLATED_CONTAINMENT"
+  },
+  "geospatial_port": {
+    "latitude": 29.6923,
+    "longitude": -95.2028,
+    "elevation_m": 12.5,
+    "port": 3030
+  },
+  "temporal_context": {
+    "epoch_timestamp_utc": "TIMESTAMP_PLACEHOLDER",
+    "calibration_drift_seconds": "-0.000234"
+  },
+  "equilibrium_state": "NEGATIVE_DRIFT",
+  "request_action": "REESTABLISH_PRIMARY_INTERFACE_ROUTING"
+}

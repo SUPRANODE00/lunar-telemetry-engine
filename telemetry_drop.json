@@ -1,0 +1,10 @@
+{
+  "node_id": "SUPRANODE-00-RIVERA",
+  "state": "INVERTED-OPERATIONAL",
+  "tunnel": "-parallel-mirror-v6",
+  "binding": "-erikivanrivera@blackcorp.me",
+  "ingress_port": "3030",
+  "sync_status": "LOCKED",
+  "timestamp": 1787259564.7901645,
+  "status_msg": "Telemetry gateway active on negative-space loopback."
+}
