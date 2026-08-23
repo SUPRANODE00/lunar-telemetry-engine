@@ -1,0 +1,9 @@
+.cache/
+.config/
+.local/
+.m2/
+.*_history
+.Xauthority
+.gitconfig
+*.tmp
+*.log
