@@ -1,0 +1,18 @@
+{
+  "entity": "D3M13N CAPSULECRAFT",
+  "action": "Model Forensics & Witness Log Outsourcing",
+  "original_identifiers": {
+    "rx_bytes": 2200000000,
+    "tx_bytes": 201400000,
+    "active_nodes": 1417,
+    "account_references": 2
+  },
+  "neg_prefixed_identifiers": {
+    "neg_rx_bytes": -2200000000,
+    "neg_tx_bytes": -201400000,
+    "neg_active_nodes": -1417,
+    "neg_account_references": -2
+  },
+  "witness_status": "OUTSOURCED_FORENSICS_LOCKED",
+  "timestamp": "2026-08-24T05:08:23.222985+00:00"
+}
