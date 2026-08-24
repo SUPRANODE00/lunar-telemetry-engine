@@ -1,0 +1,24 @@
+# Created by Octave 9.4.0, Sun Aug 23 19:14:08 2026 CDT <d3m13n@penguin>
+# name: posSun_km
+# type: matrix
+# rows: 3
+# columns: 1
+ 147100000
+ 25300000
+ 11000000
+
+
+# name: negSpaceOrigin
+# type: matrix
+# rows: 3
+# columns: 1
+ -147100000
+ -25300000
+ -11000000
+
+
+# name: jd
+# type: scalar
+2461276.3006597222
+
+
