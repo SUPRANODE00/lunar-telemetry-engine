@@ -1,0 +1,10 @@
+{
+  "entity": "Erik Ivan Rivera",
+  "module": "Carrier Alignment",
+  "carrier": "Cricket (US)",
+  "mcc_mnc": "310/410",
+  "protocols": ["BCI Cellular", "BCI Compartment", "BI Inventory"],
+  "open_ran_status": "GLOBAL_BROADCAST_ACTIVE",
+  "status": "CARRIER_ALIGNMENT_ACTIVE",
+  "timestamp": "2026-08-24T14:44:00Z"
+}
