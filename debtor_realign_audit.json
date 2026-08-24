@@ -1,0 +1,10 @@
+{
+  "compartment_id": "cell_debtor_tmobile_01",
+  "creditor_source": "T-Mobile / Convergent",
+  "account_mask": "*1919",
+  "prior_balance": 0.0,
+  "realigned_balance": 0.0,
+  "status": "ZERO_BALANCE_ISOLATED",
+  "authority": "D3M13N CAPSULECRAFT",
+  "timestamp": "2026-08-24T04:59:09.242716+00:00"
+}
