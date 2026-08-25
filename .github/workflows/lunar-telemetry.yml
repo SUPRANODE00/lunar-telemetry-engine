@@ -1,0 +1,29 @@
+name: Lunar Telemetry Engine Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  execute-telemetry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Telemetry Engine Script
+        run: |
+          python3 telemetry_sync.py > telemetry_output.json
+          cat telemetry_output.json
+
+      - name: Upload Artifact HUD Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lunar-hud-telemetry-report
+          path: telemetry_output.json
