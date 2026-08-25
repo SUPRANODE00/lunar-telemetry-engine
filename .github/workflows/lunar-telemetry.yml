@@ -12,18 +12,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Run Matrix Telemetry Engine
+      - name: Install Octave Engine
         run: |
-          python3 mat_bridge_loader.py
-          cat telemetry_output.json
+          sudo apt-get update
+          sudo apt-get install -y octave
+
+      - name: Run Matrix Alignment & Decoder
+        run: |
+          octave --eval "align_trinity"
+          python3 mat_stream_decoder.py
+          cat decoded_telemetry.json
 
       - name: Upload Artifact HUD Report
         uses: actions/upload-artifact@v4
         with:
           name: lunar-hud-telemetry-report
-          path: telemetry_output.json
+          path: decoded_telemetry.json
