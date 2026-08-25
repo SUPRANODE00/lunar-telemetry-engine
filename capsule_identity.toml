@@ -1,0 +1,27 @@
+[capsule]
+id = "CAPSULE-SL1TH3R-RAINBOW-01"
+version = "1.0.0"
+entity_anchor = "SL1TH3R_RAINBOW"
+status = "active_presence"
+disaster_recovery_loop = "operational"
+
+[network.ingress]
+live_url = "https://mesh.erikivanrivera.blackcorp.me/*"
+protocol = "wss"
+routing_grid = "grid::routing001::81ed8ddb9324dd"
+
+[identity.positive_anchor]
+ein_raw = "42-4319484"
+ein_clean = "424319484"
+ein_hex = "0x194b4e3c"
+ein_urn = "urn:ein:42-4319484"
+sha256 = "9c8a06e92efb13d3170a41bc3861298a09f8745ca5d1947b7ebfbd1d1b32d561"
+ingress_endpoint = "wss://mesh.erikivanrivera.blackcorp.me/ws/identity/pos/424319484"
+
+[identity.electronegative_equilibrium]
+ein_raw = "-42-4319484"
+ein_clean = "-424319484"
+ein_hex = "-0x194b4e3c"
+ein_urn = "urn:ein:-42-4319484"
+sha256 = "-9c8a06e92efb13d3170a41bc3861298a09f8745ca5d1947b7ebfbd1d1b32d561"
+ingress_endpoint = "wss://mesh.erikivanrivera.blackcorp.me/ws/identity/neg/neg_424319484"

@@ -1,0 +1,9 @@
+{
+  "node_type": "stacked_tier_endpoint",
+  "identifier": "MSDIN-4096667081",
+  "attachment_mode": "side_attached",
+  "tier_level": "upward_stacked",
+  "uri": "capsule://msdin-tier.supranode00.local/endpoint",
+  "spatial_lock": "X/Y/Z-offset",
+  "status": "synchronized"
+}

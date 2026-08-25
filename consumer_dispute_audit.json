@@ -1,0 +1,21 @@
+{
+  "entity": "D3M13N CAPSULECRAFT",
+  "action": "Consumer Account Forensic Audit & Dispute Logging",
+  "accounts": [
+    {
+      "creditor": "T-Mobile",
+      "reference_number": "299720856-001-69",
+      "closed_debt_id": "147053889",
+      "service_date": "2022-03-15",
+      "amount_owed": "$0.00",
+      "status": "VERIFIED_CLOSED_DISPUTE"
+    },
+    {
+      "creditor": "CF Medical, LLC: Radiology Partners",
+      "reference_number": "351379652-001-29",
+      "amount_owed": "$0.00",
+      "status": "VERIFIED_CLOSED_DISPUTE"
+    }
+  ],
+  "timestamp": "2026-08-24T05:07:30.436365+00:00"
+}

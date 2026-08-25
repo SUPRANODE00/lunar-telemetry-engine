@@ -1,0 +1,18 @@
+{
+  "entity": "D3M13N CAPSULECRAFT",
+  "action": "Identifier Variable Inversion & Section 508 Troubleshooting",
+  "original_identifiers": {
+    "rx_bytes": 2200000000,
+    "tx_bytes": 201400000,
+    "active_nodes": 1417,
+    "connection_type": "cellular"
+  },
+  "inverted_identifiers": {
+    "neg_rx_bytes": -2200000000,
+    "neg_tx_bytes": -201400000,
+    "neg_active_nodes": -1417,
+    "neg_connection_type": "-(cellular)"
+  },
+  "troubleshooting_status": "POLARITY_INVERSION_SUCCESSFUL",
+  "timestamp": "2026-08-24T05:01:20.036562+00:00"
+}

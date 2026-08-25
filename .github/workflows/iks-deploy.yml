@@ -1,0 +1,21 @@
+name: Build and Deploy to IKS (Capsule Mesh Telemetry)
+on:
+  push:
+    branches: [ "main", "feat/stateless-control-plane" ]
+env:
+  GITHUB_SHA: ${{ github.sha }}
+  IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+  IBM_CLOUD_REGION: us-south
+  ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
+  REGISTRY_HOSTNAME: us.icr.io
+  IMAGE_NAME: lunar-telemetry-engine
+  IKS_CLUSTER: example-iks-cluster-name-or-id
+  DEPLOYMENT_NAME: capsule-node-deployment
+  PORT: 8080
+jobs:
+  setup-build-publish-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      # (rest of workflow steps here)

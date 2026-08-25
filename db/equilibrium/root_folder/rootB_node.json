@@ -1,0 +1,9 @@
+{
+  "node_type": "uri_endpoint",
+  "identifier": "root_b_generative_origin",
+  "uri": "capsule://root-b.supranode00.local/origin",
+  "spatial_lock": "X/Y/Z",
+  "charge_state": "active_carrier_modulated",
+  "encoding": "utf-8",
+  "status": "synchronized"
+}
