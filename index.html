@@ -59,3 +59,12 @@
     </script>
 </body>
 </html>
+    <script>
+        const ws = new WebSocket(`ws://${window.location.host}`);
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById('status').innerText = `LIVE SYNC: NODE ${data.node_id}`;
+        };
+    </script>
+</body>
+</html>
