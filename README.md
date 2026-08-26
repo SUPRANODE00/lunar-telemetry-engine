@@ -1,26 +1,15 @@
-# lunar-telemetry-engine
+# Lunar Telemetry Engine // AXIS Architecture
 
-# Lunar Telemetry Matrix Engine (`lunar-telemetry-engine`)
+A real-time spatial mesh telemetry orchestration engine featuring automated Octave/MATLAB tensor decoding, WebSocket streaming synchronization, and a Three.js interactive 3D WebGL HUD client.
 
-A lightweight POSIX shell and Python orchestration repository designed to ingest spatial coordinates, compute celestial zenith/elevation vectors, and filter log streams for real-time mesh node positioning.
+## Sovereignty & Digital Jurisdiction
+Published under a Sovereign Digital Jurisdictional Umbrella. All intellectual property, architectural designs, trade secrets, and proprietary source code are originating works of Erik Ivan Rivera under D3M13N CAPSULECRAFT and SL1TH3R RAINBOW. Protected by U.S. and international law (including the Defend Trade Secrets Act, Lanham Act, Copyright Act, TRIPS, Berne, and Paris Conventions).
 
-## Architecture & System Flow
+## Pipeline Execution
+1. **Octave / MATLAB Alignment:** `align_trinity.m` anchors the origin and maps spatial tensors.
+2. **Python Decoding:** `mat_stream_decoder.py` and `mat_bridge_loader.py` ingest matrix outputs into JSON artifacts.
+3. **WebSocket Bridge:** `server.js` maintains real-time pulse synchronization with the visualization client.
+4. **Three.js HUD Client:** Renders live coordinate nodes as an interactive spatial wireframe grid.
 
-This repository calculates real-time lunar tracking metrics (Hour Angle, Elevation, Zenith Angle, and Azimuth) and processes raw telemetry outputs using standard command-line stream manipulation tools.
-
-1. **Ingest Phase**: `telemetry_calc.py` calculates local sidereal time (LST) and directional vectors from geographic and astronomical inputs.
-2. **Pipeline Stream Phase**: System outputs are redirected to log files for offline parsing or piped directly through Unix streams.
-3. **Filter & Transform Phase**: Native POSIX utilities (`cat`, `sed`, `awk`) extract required field metrics without third-party binary dependencies.
-
----
-
-## File Structure
-
-```text
-.
-├── README.md
-├── scripts/
-│   ├── telemetry_calc.py
-│   └── process_logs.sh
-└── data/
-    └── telemetry.log
+## Trademarks
+AXIS®, D3M13N CAPSULECRAFT®, SL1TH3R RAINBOW®, and Nocturnal Students of AXIS™ are registered trademarks and protected proprietary assets.
