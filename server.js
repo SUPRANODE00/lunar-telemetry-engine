@@ -1,33 +1,54 @@
-const express = require('express');
-const http = require('http');
-const WebSocket = require('type-ws'); // Or ws package equivalent
-const path = require('path');
+// -----------------------------------------------------------------------------
+// Copyright © 2026 Erik Ivan Rivera (D3M13N CAPSULECRAFT / SL1TH3R RAINBOW)
+// SPDX-License-Identifier: LicenseRef-Proprietary
+//
+// WebSocket Telemetry Broadcasting Server & Consensus Synchronization Bridge
+// -----------------------------------------------------------------------------
 
-const app = express();
-const server = http.createServer(app);
+const http = require('http');
+const WebSocket = require('ws');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/' || req.url === '/index.html') {
+        fs.readFile('index.html', (err, data) => {
+            if (err) {
+                res.writeHead(500);
+                res.end('Error loading HUD client');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(data);
+            }
+        });
+    } else {
+        res.writeHead(404);
+        res.end('Not Found');
+    }
+});
+
 const wss = new WebSocket.Server({ server });
 
-app.use(express.static(path.join(__dirname)));
-
 wss.on('connection', (ws) => {
-    console.log('[TELEMETRY BRIDGE]: Client connected to mesh telemetry stream.');
+    console.log('[BRIDGE] Sovereign HUD client connected.');
     
+    // Broadcast periodic heartbeat pulse with multi-rail consensus metrics
     const interval = setInterval(() => {
-        const livePayload = {
+        const payload = JSON.stringify({
             node_id: Math.floor(Math.random() * 5),
-            spatial_vector: [Math.random() * 10, Math.random() * 10, 0.0],
-            timestamp: Date.now()
-        };
-        ws.send(JSON.stringify(livePayload));
-    }, 1000);
+            spatial_vector: [Math.random() * 15, Math.random() * 10, Math.random() * 5],
+            timestamp: Date.now(),
+            consensus_status: "VERIFIED_TRINITY_CONSENSUS"
+        });
+        ws.send(payload);
+    }, 3000);
 
     ws.on('close', () => {
         clearInterval(interval);
-        console.log('[TELEMETRY BRIDGE]: Client disconnected.');
+        console.log('[BRIDGE] Client disconnected.');
     });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`[TELEMETRY BRIDGE]: Server active on http://localhost:${PORT}`);
+    console.log(`[AXIS SERVER] Telemetry orchestration engine active on port ${PORT}`);
 });
