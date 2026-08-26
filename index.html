@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AXIS // Lunar Telemetry HUD</title>
+    <title>AXIS // Lunar Telemetry HUD - Sovereign Edition</title>
     <style>
         body { margin: 0; background: #050505; color: #00ffcc; font-family: monospace; overflow: hidden; }
-        #hud { position: absolute; top: 20px; left: 20px; z-index: 10; background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #00ffcc; }
+        #hud { position: absolute; top: 20px; left: 20px; z-index: 10; background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #00ffcc; text-transform: uppercase; }
         canvas { display: block; }
+        .alert-red { color: #ff0000; font-weight: bold; }
+        .alert-amber { color: #ffaa00; font-weight: bold; }
+        .alert-cyan { color: #00ffcc; font-weight: bold; }
     </style>
 </head>
 <body>
     <div id="hud">
         <h3>AXIS TELEMETRY MESH</h3>
-        <p>STATUS: <span id="status">INITIALIZING</span></p>
         <p>ANCHOR: [826.0, 770.0, 0.0]</p>
+        <p>STATUS: <span id="status" class="alert-cyan">INITIALIZING...</span></p>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         const scene = new THREE.Scene();
@@ -24,46 +28,76 @@
         document.body.appendChild(renderer.domElement);
 
         const geometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
+        
+        // Polarity & Drift Materials
+        const matAligned = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
+        const matDrift = new THREE.MeshBasicMaterial({ color: 0xffaa00, wireframe: true });
+        const matSevere = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
         
         const nodes = [];
-        // Project anchor grid points
-        const coords = [[1, 0, 0], [0, 1, 0], [-1, 0, 0], [0, -1, 0], [1, 0, 0]];
+        // Spatial coordinate origins
+        const coords = [[1, 0, 0], [0, 1, 0], [-1, 0, 0], [0, -1, 0], [0, 0, 1]];
+        
         coords.forEach((pos, idx) => {
-            const mesh = new THREE.Mesh(geometry, material);
+            const mesh = new THREE.Mesh(geometry, matAligned);
             mesh.position.set(pos[0] * 3, pos[1] * 3, pos[2] * 3);
+            
+            // Inject scaling targets for heartbeat lerping
+            mesh.userData = { targetScale: 1.0 };
+            
             scene.add(mesh);
             nodes.push(mesh);
         });
 
         camera.position.z = 10;
 
+        // Render Loop with Pulse Decay
         function animate() {
             requestAnimationFrame(animate);
             nodes.forEach((node, index) => {
+                // Orbital Rotation
                 node.rotation.x += 0.01 * (index + 1);
                 node.rotation.y += 0.02;
+                
+                // Heartbeat Pulse Decay (Lerp back to base scale)
+                node.scale.lerp(new THREE.Vector3(node.userData.targetScale, node.userData.targetScale, node.userData.targetScale), 0.1);
+                if (node.userData.targetScale > 1.0) {
+                    node.userData.targetScale -= 0.05; // Decay rate
+                }
             });
             renderer.render(scene, camera);
         }
         animate();
 
-        fetch('decoded_telemetry.json')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('status').innerText = data.status || 'ONLINE';
-            })
-            .catch(() => {
-                document.getElementById('status').innerText = 'LOCAL MESH ACTIVE';
-            });
-    </script>
-</body>
-</html>
-    <script>
+        // Live Telemetry Sync
         const ws = new WebSocket(`ws://${window.location.host}`);
         ws.onmessage = (event) => {
             const data = JSON.parse(event.data);
-            document.getElementById('status').innerText = `LIVE SYNC: NODE ${data.node_id}`;
+            const statusEl = document.getElementById('status');
+            
+            if (nodes[data.node_id]) {
+                const targetNode = nodes[data.node_id];
+                
+                // 1. Trigger Heartbeat Scale Expansion
+                targetNode.userData.targetScale = 1.8; 
+                
+                // 2. Drift Detection Logic (Evaluating spatial tensor sum)
+                const vectorSum = data.spatial_vector.reduce((a, b) => a + b, 0);
+                
+                if (vectorSum > 16) {
+                    targetNode.material = matSevere;
+                    statusEl.className = "alert-red";
+                    statusEl.innerText = `SEVERE DRIFT: NODE ${data.node_id}`;
+                } else if (vectorSum > 10) {
+                    targetNode.material = matDrift;
+                    statusEl.className = "alert-amber";
+                    statusEl.innerText = `OFFSET DETECTED: NODE ${data.node_id}`;
+                } else {
+                    targetNode.material = matAligned;
+                    statusEl.className = "alert-cyan";
+                    statusEl.innerText = `SYNC ALIGNED: NODE ${data.node_id}`;
+                }
+            }
         };
     </script>
 </body>
