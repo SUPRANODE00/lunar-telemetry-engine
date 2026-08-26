@@ -1,9 +1,5 @@
-.cache/
-.config/
-.local/
-.m2/
-.*_history
-.Xauthority
-.gitconfig
-*.tmp
-*.log
+node_modules/
+package-lock.json
+decoded_telemetry.json
+telemetry_sync.json
+parsed_nodes.json
