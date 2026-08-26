@@ -1,5 +1,0 @@
-node_modules/
-package-lock.json
-decoded_telemetry.json
-telemetry_sync.json
-parsed_nodes.json
