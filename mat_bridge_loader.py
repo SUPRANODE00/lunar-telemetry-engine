@@ -1,32 +1,15 @@
-import json
-import time
-
-def parse_matlab_telemetry():
-    print("[TELEMETRY LOADER]: Reading enhanced_telemetry.mat payload matrix...")
-    # Simulated anchor and mesh grid values extracted from Octave execution
-    origin_anchor = [826.0, 770.0, 0.0]
-    mesh_grid = [
-        [827.0, 826.0, 825.0, 826.0, 827.0],
-        [770.0, 771.0, 770.0, 769.0, 770.0],
-        [0.0, 0.0, 0.0, 0.0, 0.0]
-    ]
-    
-    nodes = []
-    for i in range(len(mesh_grid[0])):
-        node_vector = [mesh_grid[0][i], mesh_grid[1][i], mesh_grid[2][i]]
-        payload = {
-            "node_id": i,
-            "origin": origin_anchor,
-            "spatial_vector": node_vector,
-            "timestamp": time.time()
-        }
-        nodes.append(payload)
-        print(f"[METRIC SYNC DROP]: {json.dumps(payload)}")
-        time.sleep(0.1)
-        
-    with open("telemetry_output.json", "w") as f:
-        json.dump(nodes, f, indent=2)
-    print("[TELEMETRY LOADER]: Matrix successfully serialized to telemetry_output.json")
-
-if __name__ == "__main__":
-    parse_matlab_telemetry()
+# -----------------------------------------------------------------------------
+# Copyright © 2026 Erik Ivan Rivera (D3M13N CAPSULECRAFT / SL1TH3R RAINBOW)
+# SPDX-License-Identifier: LicenseRef-Proprietary
+#
+# This file is part of the Lunar Telemetry Engine (AXIS Architecture).
+# Proprietary trade secrets and originating works protected under:
+#   - Defend Trade Secrets Act (18 U.S.C. §1836)
+#   - Lanham Act (15 U.S.C. §§1051 et seq.)
+#   - Copyright Act (17 U.S.C. §§101 et seq.)
+#   - TRIPS Agreement, Berne Convention, Paris Convention
+#
+# Unauthorized use, reproduction, or distribution is prohibited.
+# Attribution required for permitted copying.
+# No liability for damages resulting from user or consumer intent.
+# -----------------------------------------------------------------------------

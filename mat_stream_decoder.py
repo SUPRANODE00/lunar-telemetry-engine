@@ -1,32 +1,15 @@
-import subprocess
-import json
-import sys
-import time
-
-def extract_mat_payload():
-    print("[MAT DECODER]: Querying enhanced_telemetry.mat vector space...")
-    try:
-        # Stream Octave script output to decode matrix structure
-        cmd = ["octave", "--eval", "load('enhanced_telemetry.mat'); disp(mesh_grid);"]
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        
-        raw_lines = result.stdout.strip().split('\n')
-        print(f"[MAT DECODER]: Extracted raw grid tensor:\n{result.stdout}")
-        
-        # Structure extraction payload
-        payload = {
-            "status": "ALIGNED",
-            "raw_matrix": raw_lines,
-            "timestamp": time.time()
-        }
-        
-        with open("decoded_telemetry.json", "w") as f:
-            json.dump(payload, f, indent=2)
-            
-        print("[MAT DECODER]: Spatial vector tensor stored in decoded_telemetry.json")
-    except Exception as e:
-        print(f"[MAT DECODER ERROR]: Failed to process matrix structure: {e}")
-        sys.exit(1)
-
-if __name__ == "__main__":
-    extract_mat_payload()
+# -----------------------------------------------------------------------------
+# Copyright © 2026 Erik Ivan Rivera (D3M13N CAPSULECRAFT / SL1TH3R RAINBOW)
+# SPDX-License-Identifier: LicenseRef-Proprietary
+#
+# This file is part of the Lunar Telemetry Engine (AXIS Architecture).
+# Proprietary trade secrets and originating works protected under:
+#   - Defend Trade Secrets Act (18 U.S.C. §1836)
+#   - Lanham Act (15 U.S.C. §§1051 et seq.)
+#   - Copyright Act (17 U.S.C. §§101 et seq.)
+#   - TRIPS Agreement, Berne Convention, Paris Convention
+#
+# Unauthorized use, reproduction, or distribution is prohibited.
+# Attribution required for permitted copying.
+# No liability for damages resulting from user or consumer intent.
+# -----------------------------------------------------------------------------

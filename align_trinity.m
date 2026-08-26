@@ -1,12 +1,15 @@
-function align_trinity()
-    disp('[MATLAB BRIDGE]: Initializing Trinity Compiler alignment...');
-    origin_anchor = [826.0, 770.0, 0.0];
-    theta = 0:pi/2:2*pi;
-    vector_x = cos(theta);
-    vector_y = sin(theta);
-    mesh_grid = [origin_anchor(1) + vector_x; origin_anchor(2) + vector_y; zeros(size(theta))];
-    disp('[MATLAB BRIDGE]: Spatial mesh grid successfully projected.');
-    disp(mesh_grid);
-    save('enhanced_telemetry.mat', 'mesh_grid', 'origin_anchor');
-    disp('[MATLAB BRIDGE]: Telemetry metrics exported to enhanced_telemetry.mat');
-end
+% -----------------------------------------------------------------------------
+% Copyright © 2026 Erik Ivan Rivera (D3M13N CAPSULECRAFT / SL1TH3R RAINBOW)
+% SPDX-License-Identifier: LicenseRef-Proprietary
+%
+% This file is part of the Lunar Telemetry Engine (AXIS Architecture).
+% Proprietary trade secrets and originating works protected under:
+%   - Defend Trade Secrets Act (18 U.S.C. §1836)
+%   - Lanham Act (15 U.S.C. §§1051 et seq.)
+%   - Copyright Act (17 U.S.C. §§101 et seq.)
+%   - TRIPS Agreement, Berne Convention, Paris Convention
+%
+% Unauthorized use, reproduction, or distribution is prohibited.
+% Attribution required for permitted copying.
+% No liability for damages resulting from user or consumer intent.
+% -----------------------------------------------------------------------------
